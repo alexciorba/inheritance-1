@@ -16,6 +16,14 @@ public class Animal {
         this.tip=tip;
     }
 
+
+    public Animal(String text){
+       this(text.split(",")[0],
+               Double.parseDouble(text.split(",")[1]),
+               Integer.parseInt(text.split(",")[2]),
+               text.split(",")[3]);
+    }
+
     public void setNume(String nume) {
         this.nume = nume;
     }
@@ -54,6 +62,12 @@ public class Animal {
         text+="kg : " + kg + "\n";
         text+="nr picioare : " + nrPicioare + "\n";
         text+="tipul :" + tip + "\n";
+        return text;
+    }
+
+    public String toSave(){
+        String text="";
+        text+=nume + "," + kg + "," + nrPicioare + "," + tip;
         return text;
     }
 }
